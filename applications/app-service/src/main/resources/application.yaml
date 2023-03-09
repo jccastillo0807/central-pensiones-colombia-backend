@@ -1,0 +1,43 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "clean-architecture-project"
+  devtools:
+    add-properties: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  profiles:
+    include: null
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: "jdbc:mysql://localhost/pensiones_colombia_db"
+    username: "root"
+    password: "root"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+  jpa:
+    databasePlatform: "org.hibernate.dialect.MySQL57Dialect"
+    properties:
+      hibernate:
+        format-sql: true
+      show-sql: true
+    ddlAuto: "create-drop"
+adapter:
+  restconsumer:
+    timeout: 5000
+    url: "http://localhost:8080"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+logging.level.org.hibernate.SQL: debug
