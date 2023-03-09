@@ -2,14 +2,14 @@ package co.com.project.consumer;
 
 import lombok.*;
 
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder(toBuilder = true)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
 public class ObjectRequest {
 
-private String val1;
-private String val2;
+    private String val1;
+    private String val2;
 
 }
