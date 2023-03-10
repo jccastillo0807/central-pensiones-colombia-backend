@@ -23,7 +23,8 @@ public class PensionRepositoryAdapter extends AdapterOperations<Pension, Pension
     @Override
     @Transactional(readOnly = true)
     public Mono<Pension> consultarDatosCausante(String tipoIdentificacion, String numeroIdentificacion) {
-        if (tipoIdentificacion.equalsIgnoreCase(null) || numeroIdentificacion.equalsIgnoreCase(null)){
+        if (tipoIdentificacion.equalsIgnoreCase("") || numeroIdentificacion.equalsIgnoreCase("")
+                || numeroIdentificacion.isEmpty() || tipoIdentificacion.isEmpty()){
             return Mono.empty();
         }
         PensionData usuarioEncontrado = repository.findByTipoIdentificacionAndNumeroIdentificacion(tipoIdentificacion, numeroIdentificacion);
@@ -35,6 +36,9 @@ public class PensionRepositoryAdapter extends AdapterOperations<Pension, Pension
 
     @Override
     public Mono<Pension> crearRegistro(Pension pension) {
+        if ( Objects.isNull(pension)) {
+           return Mono.empty();
+        }
         return Mono.just(save(pension));
     }
 }

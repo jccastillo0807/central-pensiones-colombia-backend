@@ -29,23 +29,23 @@ public class PensionData {
     @Column(name = "numero_identificacion")
     private String numeroIdentificacion;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(name = "fecha_afiliacion")
     private Date fechaAfiliacion;
 
-    @NotEmpty
+//    @NotNull
     @Column(name = "compania_pensiones")
     private Integer companiaPensiones;
 
-    @NotEmpty
+//    @NotNull
     @Column(name = "id_afiliacion_compania")
     private Integer idAfiliacion;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(name = "meses_cotizados")
     private Long mesesCotizados;
 
-    @NotEmpty
+//    @NotEmpty
     @Column(name = "salario")
     private Long salario;
 }

@@ -12,4 +12,8 @@ public class PensionUseCase {
     public Mono<Pension> buscarRegistroPorTipoYNumeroDocumento(String tipoDocumento, String nroDocumento) {
        return pensionRepository.consultarDatosCausante(tipoDocumento,nroDocumento);
     }
+
+    public Mono<Pension> CrearNuevoRegistroPension(Pension pension){
+        return pensionRepository.crearRegistro(pension);
+    }
 }
