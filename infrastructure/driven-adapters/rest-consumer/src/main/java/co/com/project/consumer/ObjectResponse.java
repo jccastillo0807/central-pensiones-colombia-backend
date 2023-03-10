@@ -1,14 +1,12 @@
 package co.com.project.consumer;
 
-import lombok.*;
-
-    @Getter
+/*    @Getter
     @Setter
     @NoArgsConstructor
     @AllArgsConstructor
-    @Builder(toBuilder = true)
+    @Builder(toBuilder = true)*/
 public class ObjectResponse {
 
-private String state;
+//private String state;
 
 }

@@ -1,8 +1,6 @@
 package co.com.project.consumer.config;
 
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
+//@Configuration
 public class RestConsumerConfig {
 /*
     @Value("${adapter.restconsumer.url}")

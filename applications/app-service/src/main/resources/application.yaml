@@ -22,11 +22,12 @@ spring:
     driverClassName: "com.mysql.cj.jdbc.Driver"
   jpa:
     databasePlatform: "org.hibernate.dialect.MySQL57Dialect"
+    hibernate:
+      ddl-auto: "create-drop"
     properties:
       hibernate:
         format-sql: true
       show-sql: true
-    ddlAuto: "create-drop"
 adapter:
   restconsumer:
     timeout: 5000

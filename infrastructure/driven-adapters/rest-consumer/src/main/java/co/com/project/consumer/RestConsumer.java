@@ -1,10 +1,7 @@
 package co.com.project.consumer;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-@Service
-@RequiredArgsConstructor
+//@Service
+//@RequiredArgsConstructor
 public class RestConsumer /* implements Gateway from domain */{
 
     /*private final WebClient client;
