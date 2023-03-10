@@ -5,7 +5,10 @@ import co.com.project.model.pension.Pension;
 import co.com.project.model.pension.gateways.PensionRepository;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
+
+import java.util.Objects;
 
 import static co.com.project.jpa.convertidor.DataMapper.convertirPensionDataAPension;
 
@@ -18,8 +21,15 @@ public class PensionRepositoryAdapter extends AdapterOperations<Pension, Pension
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Mono<Pension> consultarDatosCausante(String tipoIdentificacion, String numeroIdentificacion) {
+        if (tipoIdentificacion.equalsIgnoreCase(null) || numeroIdentificacion.equalsIgnoreCase(null)){
+            return Mono.empty();
+        }
         PensionData usuarioEncontrado = repository.findByTipoIdentificacionAndNumeroIdentificacion(tipoIdentificacion, numeroIdentificacion);
+        if (Objects.isNull(usuarioEncontrado)){
+            return Mono.empty();
+        }
         return Mono.just(convertirPensionDataAPension(usuarioEncontrado));
     }
 
